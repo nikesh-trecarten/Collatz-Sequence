@@ -1,7 +1,9 @@
-* {
-    justify-items: center;
+.sequence-steps {
+  list-style: none;
 }
 
-.sequence-steps {
-    list-style: none;
+.input {
+  justify-items: end;
+  background-color: white;
+  color: black;
 }
