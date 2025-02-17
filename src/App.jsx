@@ -48,24 +48,30 @@ function App() {
         Repeat this sequence over and over again. It will always eventually
         result in 1.
       </p>
-      <label htmlFor="input">
-        Enter any number (except 1) to simulate the Collatz Sequence!
-      </label>
-      <input
-        className="input"
-        type="number"
-        id="input"
-        value={input}
-        onChange={(e) => setInput(e.target.value)} // update input state
-      />
-      <button onClick={handleSubmit}>Run Collatz Sequence</button>
+      <div className="form">
+        <label htmlFor="input">
+          Enter any number to simulate the Collatz Sequence!
+        </label>
+        <br />
+        <input
+          className="input"
+          type="number"
+          id="input"
+          value={input}
+          onChange={(e) => setInput(e.target.value)} // update input state
+        />
+        <br />
+        <button onClick={handleSubmit}>Run Collatz Sequence</button>
+      </div>
       <div>
         {sequence.length > 0 && (
           <div>
             <h2>Sequence Steps:</h2>
             <ul className="sequence-steps">
               {sequence.map((step, index) => (
-                <li key={index}>{step}</li>
+                <li key={index}>
+                  {step % 2 === 0 ? step + " / 2 = " : step + " * 3 + 1 ="}
+                </li>
               ))}
             </ul>
           </div>

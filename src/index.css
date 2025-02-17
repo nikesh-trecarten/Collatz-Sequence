@@ -7,10 +7,19 @@
 }
 
 h1 {
+  font-size: 3rem;
   color: #fc8403;
 }
 
+label {
+  font-size: 1.5rem;
+}
+
 button {
+  justify-self: center;
+  width: 170px;
+  height: 45px;
+  border-radius: 10px;
   background-color: #ed6e12;
   border: #ed6e12;
 }
