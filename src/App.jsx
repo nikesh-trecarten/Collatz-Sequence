@@ -2,12 +2,11 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [input, setInput] = useState(""); // store user's input
-  const [sequence, setSequence] = useState([]); // store sequence steps
+  const [input, setInput] = useState("");
+  const [sequence, setSequence] = useState([]);
 
   function collatz(number) {
-    let seq = [number]; // start sequence with input number
-    console.log("Initial seq:", seq);
+    let seq = [number];
 
     while (number !== 1) {
       if (number % 2 === 0) {
@@ -15,24 +14,28 @@ function App() {
       } else {
         number = number * 3 + 1;
       }
-      seq.push(number); // add each step to the sequence array
+      seq.push(number);
     }
 
-    console.log("Final sequence:", seq);
-    return seq; // return the full sequence
+    return seq;
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // prevent form submission
+    e.preventDefault();
     if (input && input !== 1) {
       const num = parseInt(input);
-      console.log("Input value:", num); // check input value
-      const result = collatz(num); // get sequence
-      setSequence(result); // update sequence as state variable
+      const result = collatz(num);
+      setSequence(result);
     } else {
       console.log("Please enter a valid number other than 1.");
     }
   };
+
+  const orderedSequence = sequence.toSorted((a, b) => {
+    return b - a;
+  });
+
+  const highestNumber = orderedSequence[0];
 
   return (
     <>
@@ -75,6 +78,14 @@ function App() {
                 </li>
               ))}
             </ul>
+            <p>
+              This Collatz Sequence went from {sequence[0]} to 1 in{" "}
+              {sequence.length} steps.
+            </p>
+            <p>
+              The highest number reached in this sequence was {highestNumber}.
+            </p>
+            <p>Pretty cool, eh? Feel free to try again!</p>
           </div>
         )}
       </div>
