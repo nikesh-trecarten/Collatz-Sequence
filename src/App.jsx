@@ -65,28 +65,32 @@ function App() {
       </div>
       <div>
         {sequence.length > 0 && (
-          <div>
-            <h2>Sequence Steps:</h2>
-            <ul className="sequence-steps">
-              {sequence.map((step, index) => (
-                <li key={index}>
-                  {step === 1
-                    ? "1."
-                    : step % 2 === 0
-                    ? step + " / 2 = "
-                    : step + " * 3 + 1 ="}
-                </li>
-              ))}
-            </ul>
-            <p>
-              This Collatz Sequence went from {sequence[0]} to 1 in{" "}
-              {sequence.length} steps.
-            </p>
-            <p>
-              The highest number reached in this sequence was {highestNumber}.
-            </p>
-            <p>Pretty cool, eh? Feel free to try again!</p>
-          </div>
+          <>
+            <div>
+              <h2>Sequence Steps:</h2>
+              <ul className="sequence-steps">
+                {sequence.map((step, index) => (
+                  <li key={index}>
+                    {step === 1
+                      ? "1."
+                      : step % 2 === 0
+                      ? step + " / 2 = "
+                      : step + " * 3 + 1 ="}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="breakdown">
+              <p>
+                This Collatz Sequence went from {sequence[0]} to 1 in{" "}
+                {sequence.length} steps.
+              </p>
+              <p>
+                The highest number reached in this sequence was {highestNumber}.
+              </p>
+              <p>Pretty cool, eh? Feel free to try again!</p>
+            </div>
+          </>
         )}
       </div>
     </>
