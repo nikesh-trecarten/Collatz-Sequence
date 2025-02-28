@@ -18,9 +18,6 @@ function App() {
       seq.push(number); // add each step to the sequence array
     }
 
-    console.log("Next Step:", number);
-    seq.push(number);
-
     console.log("Final sequence:", seq);
     return seq; // return the full sequence
   }
@@ -70,7 +67,11 @@ function App() {
             <ul className="sequence-steps">
               {sequence.map((step, index) => (
                 <li key={index}>
-                  {step % 2 === 0 ? step + " / 2 = " : step + " * 3 + 1 ="}
+                  {step === 1
+                    ? "1."
+                    : step % 2 === 0
+                    ? step + " / 2 = "
+                    : step + " * 3 + 1 ="}
                 </li>
               ))}
             </ul>
