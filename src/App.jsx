@@ -58,11 +58,11 @@ function App() {
           type="number"
           id="input"
           value={input}
-          onChange={(e) => setInput(e.target.value)} // update input state
+          onChange={(e) => setInput(e.target.value)}
         />
         <br />
-        <button onClick={handleSubmit}>Run Collatz Sequence</button>
       </div>
+      <button onClick={handleSubmit}>Run Collatz Sequence</button>
       <div>
         {sequence.length > 0 && (
           <>
