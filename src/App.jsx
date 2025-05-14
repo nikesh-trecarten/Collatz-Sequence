@@ -22,12 +22,12 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input && input !== 1) {
+    if (input && input > 1) {
       const num = parseInt(input);
       const result = collatz(num);
       setSequence(result);
     } else {
-      console.log("Please enter a valid number other than 1.");
+      alert("Please enter a valid integer higher than 1.");
     }
   };
 
